@@ -36,4 +36,4 @@ jobs:
 # And as you guess build is going to build and then deploy our project.
 
 # We're gonna reach out to the S3 feature specifically inside that CLI, and we're going to sync our distribution directory that was created when we built our project.
-# Remember, whenever we run NPM run build that creates a disc directory
+# Remember, whenever we run NPM run build that creates a disc directory.
