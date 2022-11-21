@@ -30,6 +30,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_EC2_METADATA_DISABLED: true
       
 # Anytime that you create a YAML file inside this dot GitHub slash workflows directory and then push that file off to GitHub, GitHub is going to assume that this is some kind
 # of workflow that you're going to want to execute at some point in time.
