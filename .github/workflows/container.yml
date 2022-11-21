@@ -26,6 +26,11 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
+      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/container/latest/index.html"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      
 # Anytime that you create a YAML file inside this dot GitHub slash workflows directory and then push that file off to GitHub, GitHub is going to assume that this is some kind
 # of workflow that you're going to want to execute at some point in time.
 # "packages/container/**"  meaning we only want to run this workflow whenever we make a change specifically to our container project.
