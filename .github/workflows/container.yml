@@ -25,7 +25,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ""
+          AWS_DEFAULT_REGION: us-east-1
 
 
 # Anytime that you create a YAML file inside this dot GitHub slash workflows directory and then push that file off to GitHub, GitHub is going to assume that this is some kind
@@ -36,4 +36,4 @@ jobs:
 # And as you guess build is going to build and then deploy our project.
 
 # We're gonna reach out to the S3 feature specifically inside that CLI, and we're going to sync our distribution directory that was created when we built our project.
-# Remember, whenever we run NPM run build that creates a disc directory.
+# Remember, whenever we run NPM run build that creates a disc directory
