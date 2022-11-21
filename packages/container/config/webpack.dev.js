@@ -29,5 +29,6 @@ const devConfig = {
 
 module.exports = merge(commonConfig, devConfig);
 //  the devConfig is going to override or kind of take priority over any other similar options that we might have assigned to common config.
-
+//the only goal of that plugin is to take some script tag or add a script tag into this HTML.
 // So this merge function is what's going to allow us to take all the config that we just wrote out inside that common file and merge it together with a configuration that we have inside this development file.
+// One way that we can tell CloudFront that we wanted to use the latest version of that index dot html file is by creating something called an invalidation.
