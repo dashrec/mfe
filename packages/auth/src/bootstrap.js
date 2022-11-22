@@ -3,21 +3,21 @@ import ReactDOM from 'react-dom';
 import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 // Mount function to start up the app
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {  // get onNavigate callback function from parent class container MarketingApp file
+const mount = (el, {onSignIn,  onNavigate, defaultHistory, initialPath }) => {  // get onNavigate callback function from parent class container MarketingApp file
 
-  const history = defaultHistory || createMemoryHistory({initialEntries: [initialPath]});  //if we did not get defaultHistory, create memory history
-
+  const history = defaultHistory || createMemoryHistory({ initialEntries: [initialPath] });  //if we did not get defaultHistory, create memory history
 
   if(onNavigate){
     history.listen(onNavigate);//Whenever some navigation occurs, this history object is going to call any function that we have provided to this listen thing.
   }
 
-  ReactDOM.render(<App history={history}/>, el);
-
+  ReactDOM.render(<App onSignIn={onSignIn} history={history}/>, el);
 
   return {
     onParentNavigate({ pathname: nextPathname }) {  //  whenever some navigation occurs inside of container
       const { pathname } = history.location;
+
+      console.log(nextPathname);
 
       if (pathname !== nextPathname) {
         history.push(nextPathname);
@@ -30,8 +30,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {  // get onN
 // If we are in development and in isolation,
 // call mount immediately
 if (process.env.NODE_ENV === 'development') {
-  const devRoot = document.querySelector('#_marketing-dev-root');
-
+  const devRoot = document.querySelector('#_auth-dev-root');
   if (devRoot) {
     mount(devRoot, { defaultHistory: createBrowserHistory() });
   }
