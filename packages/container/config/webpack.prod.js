@@ -18,6 +18,7 @@ const prodConfig = {
       remotes: { // So where we should go to to get some source code.
         marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`, //that key needs to match up to the first part of some import statement inside of our container project.
         auth: `auth@${domain}/auth/latest/remoteEntry.js`,
+        dashboard: `dashboard@${domain}/dashboard/latest/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),
